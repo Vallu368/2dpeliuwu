@@ -16,6 +16,9 @@ public class PlayerStats : MonoBehaviour
     public TextMeshProUGUI bpNumber;
     public TextMeshProUGUI enNumber;
 
+    public float str;
+    public float spd;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -25,11 +28,11 @@ public class PlayerStats : MonoBehaviour
         healthBar.GetComponent<Slider>().maxValue = maxHealth;
         healthBar.GetComponent<Slider>().value = currentHealth;
 
-        if(currentHealth > maxHealth)
+        if(currentHealth > maxHealth) // hp cant go over ma
         {
             currentHealth = maxHealth;
         }
-        if (currentHealth < 0)
+        if (currentHealth < 0) //hp cant go over 0, possibly change in the future? 
         {
             currentHealth = 0;
         }
