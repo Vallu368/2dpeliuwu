@@ -15,6 +15,8 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject punchGameObject;
 
+    public int attackDrain = 5;
+
     private void Awake()
     {
         stats = GetComponent<PlayerStats>();
@@ -30,11 +32,18 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(punchGameObject, activeAttackDir.transform.position, activeAttackDir.transform.rotation);
+            HandlePunchAttack();
         }
         HandleAttackDirection();
     }
 
+    public void HandlePunchAttack()
+    {
+        if (stats.energy >= attackDrain) {
+            stats.energy = stats.energy - attackDrain;
+            Instantiate(punchGameObject, activeAttackDir.transform.position, activeAttackDir.transform.rotation);
+        }
+    }
     public float PunchDamage()
     {
         return stats.str; //put raw dmg calcs here if using other than str

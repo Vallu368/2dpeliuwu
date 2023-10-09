@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerPunch : MonoBehaviour
 {
     float destroyTime = 0.1f;
+    public int energyDrain = 5;
     public PlayerAttack attack;
     public PlayerStats stats;
 
@@ -12,6 +13,7 @@ public class PlayerPunch : MonoBehaviour
     {
         attack = GameObject.Find("Player").GetComponent<PlayerAttack>();
         stats = GameObject.Find("Player").GetComponent<PlayerStats>();
+
 
     }
 

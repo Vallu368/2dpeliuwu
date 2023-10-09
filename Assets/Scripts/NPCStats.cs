@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCStats : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float health = 100;
+    public float health = 10000000;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,7 +16,7 @@ public class NPCStats : MonoBehaviour
     {
         if (health <= 0)
         {
-            this.gameObject.SetActive(false);
+           // this.gameObject.SetActive(false);
         }
 
 
