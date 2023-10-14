@@ -46,7 +46,10 @@ public class PlayerAttack : MonoBehaviour
     }
     public float PunchDamage()
     {
-        return stats.str; //put raw dmg calcs here if using other than str
+        float punchDmg;
+        punchDmg = stats.battlePower * stats.str;
+        Debug.Log("Punchdamage is " + punchDmg);
+        return punchDmg; //put raw dmg calcs here if using other than str
     }
 
     public void HandleAttackDirection()

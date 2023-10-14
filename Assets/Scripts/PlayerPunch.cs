@@ -38,7 +38,9 @@ public class PlayerPunch : MonoBehaviour
                     var direction = rb.transform.position - attack.gameObject.transform.position;
 
                     // Normalization is important, to have constant unit!
-                    rb.AddForce(direction.normalized * stats.str, ForceMode2D.Force);
+                    float pushForce = attack.PunchDamage();
+                    pushForce = pushForce / other.GetComponent<NPCStats>().defense;
+                    rb.AddForce(direction.normalized * pushForce, ForceMode2D.Force);
                 }
             }
         }

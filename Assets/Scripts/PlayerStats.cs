@@ -19,6 +19,8 @@ public class PlayerStats : MonoBehaviour
     public float str;
     public float spd;
 
+    public ChatLog chatLog;
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -37,8 +39,19 @@ public class PlayerStats : MonoBehaviour
             currentHealth = 0;
         }
 
-        bpNumber.text = battlePower.ToString();
+        bpNumber.text = battlePower.ToString("G30");
         enNumber.text = energy.ToString();
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            LevelUpStat(spd.ToString());
+        }
+    }
+
+    public void LevelUpStat(string statName)
+    {
+        chatLog.AddMessage("Leveled up stat!");
+        
     }
 
 }

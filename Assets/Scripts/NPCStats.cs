@@ -6,6 +6,7 @@ public class NPCStats : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float health = 10000000;
+    public float defense = 100;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,6 +25,8 @@ public class NPCStats : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health = health - damage;
+        float dmgTaken = damage / defense;
+        health = health - dmgTaken;
+        Debug.Log("took " + dmgTaken + " damage!");
     }
 }
